@@ -1,6 +1,7 @@
 package com.sangeng.controller;
 
 
+import com.sangeng.domain.ResponseResult;
 import com.sangeng.domain.entity.Article;
 import com.sangeng.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,10 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @GetMapping("/list")
-    public List<Article> test(){
-        return articleService.list();
+    @GetMapping("/hotArticleList")
+    public ResponseResult hotArticleList(){
+
+        ResponseResult result =  articleService.hotArticleList();
+        return result;
     }
 }
