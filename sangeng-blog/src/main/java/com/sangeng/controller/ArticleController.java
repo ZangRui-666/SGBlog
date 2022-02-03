@@ -1,6 +1,7 @@
 package com.sangeng.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sangeng.domain.ResponseResult;
 import com.sangeng.domain.entity.Article;
 import com.sangeng.service.ArticleService;
@@ -23,5 +24,10 @@ public class ArticleController {
 
         ResponseResult result =  articleService.hotArticleList();
         return result;
+    }
+
+    @GetMapping("/articleList")
+    public ResponseResult articleList(Integer pageNum,Integer pageSize,Long categoryId){
+        return articleService.articleList(pageNum,pageSize,categoryId);
     }
 }
